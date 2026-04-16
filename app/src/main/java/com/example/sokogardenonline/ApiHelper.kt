@@ -42,6 +42,32 @@ class ApiHelper(var context: Context) {
         })
     }
 
+    //function for signup
+    fun postSignup(api: String, params: RequestParams, callback: (String) -> Unit) {
+        Toast.makeText(context, "Please wait for response", Toast.LENGTH_LONG).show()
+        val client = AsyncHttpClient(true, 80, 443)
+
+        client.post(api, params, object : JsonHttpResponseHandler() {
+            override fun onSuccess(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                response: JSONObject?
+            ) {
+                val message = response?.getString("message") ?: "No message"
+                callback(message) // 🔥 send message back
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseString: String?,
+                throwable: Throwable?
+            ) {
+                callback("Error: $responseString")
+            }
+        })
+    }
+
     //Requires Access Token
     fun post_login(api: String, params: RequestParams) {
         Toast.makeText(context, "Please wait for response", Toast.LENGTH_LONG).show()

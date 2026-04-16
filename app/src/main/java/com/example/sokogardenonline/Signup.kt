@@ -28,6 +28,7 @@ class Signup : AppCompatActivity() {
         val phone = findViewById<EditText>(R.id.phone)
         val signupButton = findViewById<Button>(R.id.signupBtn)
         val signinTextView = findViewById<TextView>(R.id.signintxt)
+        val responseTxt = findViewById<TextView>(R.id.responseTxt)
 
 
         //below when a person clicks on the TextView, he/she is navigated to the singin page
@@ -54,20 +55,30 @@ class Signup : AppCompatActivity() {
             val helper = ApiHelper(applicationContext)
 
             // Inside of the helper class, access the function post
-            helper.post(api, data)
+            helper.postSignup(api, data) { message ->
+                runOnUiThread {
+                    responseTxt.text = message
 
-            // clear the details
-            email.text.clear()
-            password.text.clear()
-            phone.text.clear()
-            username.text.clear()
+                    if (message.contains("success")) {
+                        email.text.clear()
+                        password.text.clear()
+                        phone.text.clear()
+                        username.text.clear()
+                    }
+                }
+                // clear the details
+//            email.text.clear()
+//            password.text.clear()
+//            phone.text.clear()
+//            username.text.clear()
 
-            //intent to the mainActivity page
+                //intent to the mainActivity page
 //            val intent = Intent(applicationContext, MainActivity::class.java)
 //            startActivity(intent)
 
 
-        }
+            }
 
+        }
     }
 }
