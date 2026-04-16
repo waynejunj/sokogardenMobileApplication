@@ -3,75 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEEF2"
+    android:background="#F8F5F0"
+    android:orientation="vertical"
+    android:padding="24dp"
     tools:context=".PaymentActivity">
 
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="Complete payment with M-pesa"
+        android:text="Complete Payment with M-Pesa"
         android:textAlignment="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:textSize="35sp"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="#14AD1D"/>
+        android:textColor="#2E7D32"
+        android:layout_marginBottom="32dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtProductName"
-        android:text="Product Name"
-        android:layout_marginTop="20dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="#F44336"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/imgProduct"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="fitXY"
-        android:layout_margin="5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtProductCost"
-        android:text="Ksh 10"
-        android:layout_marginTop="10dp"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:textColor="#0720FF"/>
-
-    <EditText
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/phone"
-        android:hint="Enter phone number e.g 254687772"
-        android:textSize="20sp"
-        android:inputType="number"
-        android:textColorHint="#000000"
-        android:textColor="@color/black"
-        android:padding="15dp"
-        android:layout_marginTop="10dp"/>
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:layout_marginBottom="24dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="24dp">
+
+            <!-- Product Name -->
+            <TextView
+                android:id="@+id/txtProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#1B5E20" />
+
+            <!-- Product Image -->
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@mipmap/ic_launcher"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#F0F0F0"
+                app:cardCornerRadius="12dp" />
+
+            <!-- Product Cost -->
+            <TextView
+                android:id="@+id/txtProductCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ksh 10"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#FF9800"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Phone Number -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M-Pesa Phone Number"
+                android:textSize="16sp"
+                android:textColor="#424242"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="254 7XX XXX XXX"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:padding="16dp"
+                android:background="@drawable/edittext_rounded"
+                android:textColor="#212121"
+                android:textColorHint="#757575" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Pay Button -->
     <Button
+        android:id="@+id/pay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/pay"
-        android:text="Pay Now"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:backgroundTint="#03A9F4"
+        android:text="Pay Now with M-Pesa"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:padding="10dp"/>
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="12dp" />
 
 </LinearLayout>

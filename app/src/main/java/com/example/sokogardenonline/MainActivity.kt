@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 //        find the buttons by use of their ids
         val SigninButton = findViewById<Button>(R.id.signinBtn)
         val signupButton = findViewById<Button>(R.id.signupBtn)
+        val uploadBtn = findViewById<Button>(R.id.uploadBtn)
 
 //        Create the intents to the two activities
         signupButton.setOnClickListener {
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
 //        =====================================
         SigninButton.setOnClickListener {
             val intent = Intent(applicationContext, Signin::class.java)
+            startActivity(intent)
+        }
+
+        uploadBtn.setOnClickListener {
+            val intent = Intent(applicationContext, Addproducts::class.java)
             startActivity(intent)
         }
 
